@@ -136,23 +136,6 @@ img {
      background-color: lightyellow;
 }
 
-/******************************************
-/* Frontend Mentor
-/*******************************************/
-
-div a {
-     text-decoration: none;
-     color: dimgray;
-}
-
-div a:hover {
-     color: skyblue;
-}
-
-div a:active {
-     color: lightgreen;
-}
-
 
 /******************************************
 /* Media Queries
