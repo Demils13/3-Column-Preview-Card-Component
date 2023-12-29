@@ -1,254 +1,166 @@
-/* Box Model Hack */
+/**************************
+    Google Fonts
+***************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+
+/**************************
+    CSS Reset
+***************************/
+
 * {
-     box-sizing: border-box;
-     margin: 0;
-     padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Clear fix hack */
-.clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
+/**************************
+    Variables
+***************************/
+
+:root {
+  /* colors */
+  --primary-bright-orange: hsl(31, 77%, 52%);
+  --primary-dark-cyan: hsl(184, 100%, 22%);
+  --primary-very-dark-cyan: hsl(179, 100%, 13%);
+  --neutral-transparent-white: hsla(0, 0%, 100%, 0.75);
+  --neutral-very-light-gray: hsl(0, 0%, 95%);
+
+  /* Fonts */
+  --primary-font: "Big Shoulders Display";
+  --secondary-font: "Lexend Deca";
+  --title-font-size: 2.5rem;
+  --text-font-size: 1rem;
+
+  /* Border; */
+  --border-radius: 1rem;
 }
 
-.clear {
-	clear: both;
-}
-
-/******************************************
-/* BASE STYLES
-/*******************************************/
+/**************************
+    Global Styles
+***************************/
 
 body {
-     font-family: Lexend Deca, sans-serif;
-     font-size: 14px;
+  background-color: var(--neutral-transparent-white);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  margin: 5rem 0;
 }
 
-.attribution {
-     clear: both;
-     text-align: center;
+/**************************
+    Three Column Card Styles
+    Mobile up to 768px
+***************************/
+
+/* Element Wrappers */
+
+/* Card Styles Group */
+
+.card {
+  display: flex;
+  block-size: 35rem;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  row-gap: 2.5rem;
+  inline-size: 90%;
+  margin-inline: auto;
+  padding-inline: 3rem;
 }
 
-img {
-     margin-top: 25px;
+/* Card Styles Individual */
+
+.sedans-card {
+  background-color: var(--primary-bright-orange);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
-.car {
-     height: 500px;
-     width: 25%;
-     float: left;
-     color: white;
-     padding: 20px;
-     margin-bottom: 20px;
-     margin-top: 150px;
+.suvs-card {
+  background-color: var(--primary-dark-cyan);
 }
 
-.car h2 {
-     font-family: Big Shoulders Display, sans-serif;
-     text-transform: uppercase;
-     margin-top: 15px;
+.luxury-card {
+  background-color: var(--primary-very-dark-cyan);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
-.car p {
-     margin-top: 15px;
+/* Card Font Styles Group */
+
+.card-title {
+  font-family: var(--primary-font);
+  font-size: var(--title-font-size);
+  color: var(--neutral-very-light-gray);
 }
 
-.sedans {
-     margin-left: 12.5%;
-     background-color: hsl(31, 77%, 52%);
-     -webkit-border-bottom-left-radius :10px;
-        -moz-border-bottom-left-radius: 10px;
-             border-bottom-left-radius: 10px;
-
-        -webkit-border-top-left-radius :10px;
-           -moz-border-top-left-radius: 10px;
-                border-top-left-radius: 10px;
+.card-desc {
+  font-family: var(--secondary-font);
+  font-size: var(--text-font-size);
+  color: var(--neutral-very-light-gray);
+  line-height: 2rem;
 }
 
-.suv {
-     background-color: hsl(184, 100%, 22%);
+/* Card Btn Styles Group */
+
+.btn {
+  background-color: var(--neutral-very-light-gray);
+  padding: 1rem 2rem;
+  border: 0;
+  border-radius: 2rem;
+  font-family: var(--secondary-font);
+  font-size: var(--text-font-size);
 }
 
-.luxury {
-     background-color: hsl(179, 100%, 13%);
-     -webkit-border-bottom-right-radius :10px;
-        -moz-border-bottom-right-radius: 10px;
-             border-bottom-right-radius: 10px;
+/* Card Styles Individual */
 
-        -webkit-border-top-right-radius :10px;
-           -moz-border-top-right-radius: 10px;
-                border-top-right-radius: 10px;
+.btn-sedans {
+  color: var(--primary-bright-orange);
 }
 
-
-/******************************************
-/* CAR BUTTON
-/*******************************************/
-
-.button {
-     -webkit-border-radius : 15px;
-          -moz-boder-radius:; 15px;
-               border-radius: 15px;
-     color: white;
-     padding: 10px 30px;
-     border: 1px solid white;
-     margin-top: 10px;
+.btn-suvs {
+  color: var(--primary-dark-cyan);
 }
 
-.sedans .button {
-     background-color: hsl(31, 77%, 52%);
+.btn-luxury {
+  color: var(--primary-very-dark-cyan);
 }
 
-.suv .button {
-     background-color: hsl(184, 100%, 22%);
+/**************************
+    Three Column Card Styles
+    Starting from 768px
+***************************/
+
+@media (min-width: 768px) {
+  /* Switch to a 3 column layout */
+
+  .cards-wrapper {
+    display: flex;
+    width: 95%;
+  }
+
+  .card {
+    height: 27rem;
+    row-gap: 1.5rem;
+  }
+
+  .card-desc {
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+  }
+
+  .sedans-card {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+  }
+
+  .luxury-card {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  }
 }
 
-.luxury .button {
-     background-color: hsl(179, 100%, 13%);;
+/* Starting from 1024px */
+
+@media screen and (min-width: 1024px) {
+  .cards-wrapper {
+    width: 70%;
+  }
 }
-
-.sedans .button:hover {
-     background-color: skyblue;
-}
-
-.sedans .button:active {
-     background-color: lightgreen;
-}
-
-
-.suv .button:hover {
-     background-color: skyblue;
-}
-
-.suv .button:active {
-     background-color: orangered;
-}
-
-.luxury .button:hover {
-     background-color: skyblue;
-}
-
-.luxury .button:active {
-     background-color: lightyellow;
-}
-
-
-/******************************************
-/* Media Queries
-/*******************************************/
-
-@media screen and (max-width : 600px) {
-     body {
-          background-color: darkgray;
-
-     .white {
-          width: 40%;
-          margin-left: 30%;
-          background-color: white;
-     }
-
-     .car {
-          float: none;
-          width: 80%;
-          height: 100%;
-          margin: 0;
-          padding: 10;
-          margin-left: 10%;
-
-     }
-
-     .sedans .button,
-     .suv .button,
-     .luxury .button {
-          background-color: white;
-     }
-
-     .sedans .button {
-          color: hsl(31, 77%, 52%);;
-     }
-
-     .suv .button {
-     color: hsl(184, 100%, 22%);
-     }
-
-     .luxury .button {
-     color: hsl(179, 100%, 13%);;
-     }
-
-     .sedans {
-     -webkit-border-top-right-radius :10px;
-        -moz-border-top-right-radius: 10px;
-             border-top-right-radius: 10px;
-
-        -webkit-border-top-left-radius :10px;
-           -moz-border-top-left-radius: 10px;
-                border-top-left-radius: 10px;
-
-        -webkit-border-bottom-left-radius :0;
-           -moz-border-bottom-left-radius: 0;
-                border-bottom-left-radius: 0;
-     }
-
-
-     .luxury {
-     -webkit-border-bottom-right-radius :10px;
-        -moz-border-bottom-right-radius: 10px;
-             border-bottom-right-radius: 10px;
-
-        -webkit-border-bottom-left-radius :10px;
-           -moz-border-bottom-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-
-             -webkit-border-top-right-radius :0;
-                -moz-border-top-right-radius: 0;
-                     border-top-right-radius: 0;
-     }
-
-     .sedans .button:hover {
-          background-color: skyblue;
-}
-
-     .sedans .button:active {
-          background-color: lightgreen;
-}
-
-
-     .suv .button:hover {
-          background-color: skyblue;
-}
-
-     .suv .button:active {
-          background-color: orangered;
-}
-
-     .luxury .button:hover {
-          background-color: skyblue;
-}
-
-     .luxury .button:active {
-          background-color: lightyellow;
-}
-
-     .attribution {
-          margin-top: 10px;
-     }
-
-     div a {
-          text-decoration: none;
-          color: dimgray;
-}
-
-     div a:hover {
-          color: skyblue;
-}
-
-     div a:active {
-          color: lightpink;
-
-
-}
-
